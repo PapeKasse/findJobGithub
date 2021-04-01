@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}findJob{% endblock %}
+
+{% block body %}
+
+
+ <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/images/index3.jpg" class="d-block w-100" alt="Patientez"
+       style="width 100%;height:500px">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/index1.jpg" class="d-block w-100" alt="Patientez" 
+      style="width:100%;height:500px">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/index4.jpg" class="d-block w-100" alt="Patientez" 
+      style="width:100%;height:500px">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button> 
+</div>
+<div class="container">
+ <h1 style="text-align:center;text-decoration:underline">LISTE DE TOUTES LES OFFRES D'EMPLOIS</h1></br>
+{% for entreprise in entreprises %}
+  <section class="entreprises">
+    <entreprise>
+  <h2>{{ entreprise.name }}</h2>
+    <div class="metadata">Postulé le {{ entreprise.date | date('d/m/y')}} à 
+    {{ entreprise.date | date('H:i')}} dans le but d'offrir de l'emplois
+    </div>
+      <div class="content">
+        <img src="{{ entreprise.image }}" alt=""></br>
+        {{ entreprise.description  }}</br>
+        Adresse: {{entreprise.adresse }}</br>
+        <a href="#" class="btn btn-primary">lire la suite</a></br>
+     </div>
+    </entreprise>
+{% endfor %} 
+
+</div>
+
+{% endblock %}

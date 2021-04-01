@@ -1,0 +1,31 @@
+{% extends 'base.html.twig'%}
+{% form_theme formEntreprise 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+<div class="container">
+    </br>
+<h1 style="text-align:center;text-decoration:underline">
+   AJOUTER UNE ENTREPRISE
+</h1>
+</br>
+{{ form_start(formEntreprise) }}
+
+{{ form_row(formEntreprise.name,{'attr':{'placeholder':"nom de l'entreprise"}}) }}
+</br>
+{{ form_row(formEntreprise.titre, {'attr':{'placeholder':"nom de l'offre"}})}}
+</br>
+{{ form_row(formEntreprise.adresse, {'attr':{'placeholder':"votre adresse"}})}}
+</br>
+{{ form_row(formEntreprise.description,{'attr':{'placeholder':"faite une description"}})}}
+</br>
+{{ form_row(formEntreprise.contact,{'attr':{'placeholder':"votre contact"}}) }}
+</br>
+{{ form_row(formEntreprise.image,{'attr':{'placeholder':"entrer une image(Optionel)"}}) }}
+</br>
+</br>
+<button type="submit" class="btn btn-success">
+     Enregistrer
+</button>
+{{ form_end(formEntreprise) }}
+</div>
+{% endblock %}
